@@ -1,6 +1,6 @@
-import { Client, Events, GatewayIntentBits } from 'discord.js';
-import dotenv from 'dotenv';
-import express from 'express';
+import { Client, Events, GatewayIntentBits } from 'npm:discord.js';
+import dotenv from 'npm:dotenv';
+import express from 'npm:express';
 
 dotenv.config();
 

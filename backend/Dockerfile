@@ -3,7 +3,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN deno cache main.ts
+RUN deno cache main.js
 
 ENV PORT=8000
 ENV DISCORD_TOKEN=null
