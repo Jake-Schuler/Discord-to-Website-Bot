@@ -1,7 +1,12 @@
 ---
+let response
 import { API_URL } from "astro:env/server"
-const response = await fetch(API_URL);
-const data = await response.json();
+try {
+	response = await fetch(API_URL);
+} catch (error) {
+	console.error(error);
+}
+const data = await response?.json();
 const message = await data[0].content;
 const author = await data[0].author;
 const messageLength = message.length;
