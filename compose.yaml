@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  js-dtwb-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+      - backend/.env
+    command: ["run", "-A", "main.js"]
+  js-dtwb-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile # Use a separate Dockerfile for the Node.js app
+    ports:
+      - "44481:4321"
+    env_file:
+      - frontend/.env
