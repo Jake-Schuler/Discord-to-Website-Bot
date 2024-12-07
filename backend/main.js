@@ -1,8 +1,11 @@
 import { Client, Events, GatewayIntentBits } from 'npm:discord.js';
-import dotenv from 'npm:dotenv';
+import "jsr:@std/dotenv/load";
 import express from 'npm:express';
 
-dotenv.config();
+if (!Deno.env.get("DISCORD_TOKEN") || !Deno.env.get("DISCORD_CHANNEL_ID")) {
+    console.error("Missing DISCORD_TOKEN or DISCORD_CHANNEL_ID environment variables.");
+    Deno.exit(1);
+}
 
 const app = express();
 
@@ -23,8 +26,7 @@ client.once(Events.ClientReady, () => {
 // Function to fetch messages
 async function fetchMessages() {
     try {
-        const channelId = "1260744912186638356"; // Your channel ID
-        const channel = await client.channels.fetch(channelId);
+        const channel = await client.channels.fetch(Deno.env.get("DISCORD_CHANNEL_ID"));
 
         if (!channel || !channel.isTextBased()) {
             console.error("Channel not found or not a text-based channel.");
@@ -48,14 +50,14 @@ async function fetchMessages() {
 }
 
 // Express route to fetch and return messages
-app.get('/', async (req, res) => {
+app.get('/', async (_req, res) => {
     const messages = await fetchMessages();
     res.send(messages);
 });
 
 // Log in to Discord with your client's token
-client.login(process.env.DISCORD_TOKEN);
+client.login(Deno.env.get("DISCORD_TOKEN"));
 
-app.listen(process.env.PORT, () => {
-    console.log(`Example app listening on port ${process.env.PORT}`);
+app.listen(Deno.env.get("PORT"), () => {
+    console.log(`Example app listening on port ${Deno.env.get("PORT")}`)
 });

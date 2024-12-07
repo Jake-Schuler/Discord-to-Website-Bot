@@ -8,7 +8,7 @@ import node from '@astrojs/node';
 export default defineConfig({
     env: {
         schema: {
-          API_URL: envField.string({ context: "server", access: "public", optional: true }),
+          API_URL: envField.string({ context: "server", access: "public", optional: false }),
         },
       },    
     integrations: [tailwind()],
