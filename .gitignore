@@ -1,0 +1,14 @@
+# Backend
+backend/deno.lock
+backend/.env
+
+# Frontend
+frontend/dist/
+frontend/deno.lock
+frontend/node_modules
+frontend/.astro
+frontend/.vscode
+
+# Env Files
+backend/.env
+frontend/.env
