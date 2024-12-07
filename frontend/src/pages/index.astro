@@ -1,5 +1,6 @@
 ---
-const response = await fetch('http://localhost:3000/');
+import { API_URL } from "astro:env/server"
+const response = await fetch(API_URL);
 const data = await response.json();
 const message = await data[0].content;
 const author = await data[0].author;
