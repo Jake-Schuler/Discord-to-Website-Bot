@@ -1,17 +1,12 @@
 version: "3.9"
 services:
   js-dtwb-backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: ghcr.io/jake-schuler/dtwb-backend:latest
     env_file:
-      - backend/.env
-    command: ["run", "-A", "main.js"]
+      - .env
   js-dtwb-frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile # Use a separate Dockerfile for the Node.js app
+    image: ghcr.io/jake-schuler/dtwb-frontend:latest
     ports:
       - "44481:4321"
     env_file:
-      - frontend/.env
+      - .env
