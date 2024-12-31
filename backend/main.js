@@ -59,5 +59,5 @@ app.get('/', async (_req, res) => {
 client.login(Deno.env.get("DISCORD_TOKEN"));
 
 app.listen(Deno.env.get("BACKEND_PORT"), () => {
-    console.log(`Example app listening on port ${Deno.env.get("BACKEND_PORT")}`)
+    console.log(`Backend running on port ${Deno.env.get("BACKEND_PORT")}`)
 });

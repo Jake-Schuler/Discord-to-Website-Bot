@@ -1,8 +1,7 @@
 ---
 let response
-import { API_URL } from "astro:env/server"
 try {
-	response = await fetch(API_URL);
+	response = await fetch("http://js-dtwb-backend:8000/");
 } catch (error) {
 	console.error(error);
 }
