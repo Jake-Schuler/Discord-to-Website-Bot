@@ -8,4 +8,4 @@ RUN deno cache main.js
 ENV PORT=8000
 
 EXPOSE 8000
-CMD ["run", "--allow-net", "main.ts"]
+CMD ["run", "--allow-net", "main.js"]
