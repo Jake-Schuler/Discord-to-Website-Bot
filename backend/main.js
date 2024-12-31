@@ -58,6 +58,6 @@ app.get('/', async (_req, res) => {
 // Log in to Discord with your client's token
 client.login(Deno.env.get("DISCORD_TOKEN"));
 
-app.listen(Deno.env.get("PORT"), () => {
-    console.log(`Example app listening on port ${Deno.env.get("PORT")}`)
+app.listen(Deno.env.get("BACKEND_PORT"), () => {
+    console.log(`Example app listening on port ${Deno.env.get("BACKEND_PORT")}`)
 });
